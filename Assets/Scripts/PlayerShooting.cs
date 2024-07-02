@@ -31,11 +31,11 @@ public class PlayerShooting : MonoBehaviour
         // Set the bullet's velocity based on the player's facing direction
         if (playerMovement.IsFacingRight())
         {
-            rb.velocity = firePoint.right * bullet.GetComponent<Bullet>().speed;
+            rb.velocity = firePoint.right * bullet.GetComponent<Torpedo>().speed;
         }
         else
         {
-            rb.velocity = -firePoint.right * bullet.GetComponent<Bullet>().speed;
+            rb.velocity = -firePoint.right * bullet.GetComponent<Torpedo>().speed;
         }
     }
 }
