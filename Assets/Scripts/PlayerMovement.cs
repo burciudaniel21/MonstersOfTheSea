@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 velocity;
     protected float decelerateSpeed = 0.005f;
     private bool facingRight = true; // Track the current facing direction of the player
+    private float buoyancy = 0.25f;
 
     void Start()
     {
@@ -36,13 +37,14 @@ public class PlayerMovement : MonoBehaviour
         
         if (!Input.anyKeyDown)
         {
-            decelerate();
+            Decelerate();
         }
     }
 
     void FixedUpdate()
     {
         UpdateVelocity(movement);
+        AddBuoyancy();
         // Move the character
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
@@ -54,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = Mathf.Clamp(velocity.y, -maxSpeed, maxSpeed);
     }
 
-    public void decelerate()
+    public void Decelerate()
     {
         if (velocity.x < 0) velocity.x += decelerateSpeed;
         if (velocity.x > 0) velocity.x -= decelerateSpeed;
@@ -65,6 +67,12 @@ public class PlayerMovement : MonoBehaviour
         if (velocity.y <= 0.2f && velocity.y >= -0.2f)
             velocity.y = 0;
     }
+
+    void AddBuoyancy()
+    {
+        velocity.y += buoyancy;
+    }
+
 
     void Flip()
     {
