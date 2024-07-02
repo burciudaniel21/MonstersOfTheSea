@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     protected float maxSpeed = 5f;
-    private Vector2 velocity;
+    public Vector2 velocity;
     protected float decelerateSpeed = 0.005f;
     private bool facingRight = true; // Track the current facing direction of the player
     private float buoyancy = 0.25f;
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Decelerate();
         }
+        rb.velocity = velocity;
     }
 
     void FixedUpdate()
