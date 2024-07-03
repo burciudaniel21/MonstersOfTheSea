@@ -67,12 +67,6 @@ public class ResizeBackground : MonoBehaviour
         float scaleX = (cameraWidth / spriteSize.x) * scaleOffset.x;
         float scaleY = (cameraHeight / spriteSize.y) * scaleOffset.y;
 
-        //// Log the calculated values for debugging
-        //Debug.Log($"Camera Width: {cameraWidth}, Camera Height: {cameraHeight}");
-        //Debug.Log($"Sprite Width: {spriteSize.x}, Sprite Height: {spriteSize.y}");
-        //Debug.Log($"ScaleX: {scaleX}, ScaleY: {scaleY}");
-        //Debug.Log($"ScaleOffset X: {scaleOffset.x}, Y: {scaleOffset.y}");
-
         // Apply the scale to the background
         transform.localScale = new Vector3(scaleX, scaleY, 1f);
 
@@ -95,18 +89,22 @@ public class ResizeBackground : MonoBehaviour
 
     private void OnValidate()
     {
+        // Ensure the camera is found
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
+        // Ensure the SpriteRenderer is cached
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
         // Only trigger resizing in the editor if the game is running
         if (Application.isPlaying)
         {
             ResizeToCamera();
-        }
-        else
-        {
-            // Ensure the camera is found
-            if (mainCamera == null)
-            {
-                mainCamera = Camera.main;
-            }
         }
     }
 }
