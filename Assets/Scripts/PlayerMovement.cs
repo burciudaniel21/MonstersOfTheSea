@@ -8,7 +8,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    protected float maxSpeed = 5f;
+    public Vector2 velocity;
+    protected float decelerateSpeed = 0.005f;
     private bool facingRight = true; // Track the current facing direction of the player
+    private float buoyancy = 0.25f;
 
     void Start()
     {
@@ -18,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Get input from the player
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        movement.y = Input.GetAxisRaw("Vertical") * moveSpeed;
 
         // Flip the player based on the direction of movement
         if (movement.x > 0 && !facingRight)
@@ -30,13 +34,46 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+        
+        if (!Input.anyKeyDown)
+        {
+            Decelerate();
+        }
+        rb.velocity = velocity;
     }
 
     void FixedUpdate()
     {
+        UpdateVelocity(movement);
+        AddBuoyancy();
         // Move the character
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
+
+    void UpdateVelocity(Vector2 acceleration)
+    {
+        velocity += acceleration;
+        velocity.x = Mathf.Clamp(velocity.x, -maxSpeed, maxSpeed);
+        velocity.y = Mathf.Clamp(velocity.y, -maxSpeed, maxSpeed);
+    }
+
+    public void Decelerate()
+    {
+        if (velocity.x < 0) velocity.x += decelerateSpeed;
+        if (velocity.x > 0) velocity.x -= decelerateSpeed;
+        if (velocity.y < 0) velocity.y += decelerateSpeed;
+        if (velocity.y > 0) velocity.y -= decelerateSpeed;
+        if (velocity.x <= 0.2f && velocity.x >= -0.2f)
+            velocity.x = 0;
+        if (velocity.y <= 0.2f && velocity.y >= -0.2f)
+            velocity.y = 0;
+    }
+
+    void AddBuoyancy()
+    {
+        velocity.y += buoyancy;
+    }
+
 
     void Flip()
     {

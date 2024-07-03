@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class MovementDetector : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class MovementDetector : MonoBehaviour
             // Reset the timer
             timer = timeInterval;
         }
-    }
+      }
 
     private void InstantiateRandomPrefabs()
     {

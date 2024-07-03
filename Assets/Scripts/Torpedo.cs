@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Torpedo : MonoBehaviour
 {
     public float speed = 20f;
     public int damage = 10;
