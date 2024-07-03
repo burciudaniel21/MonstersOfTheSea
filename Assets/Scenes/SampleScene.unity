@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &39214190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5004252576667811770, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
+  m_PrefabInstance: {fileID: 3169252740994480041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &373775330
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,12 +494,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6790198176570493210, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
   m_PrefabInstance: {fileID: 3169252740994480041}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 39214190}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3aeba7ab2dd8f9544a531c78223f5249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1120644126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39214190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4b2188d8550f04896d83d2e547bfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  lowHealthColor: {r: 0, g: 0.0006518364, b: 1, a: 1}
+  lowHealthThreshold: 0.3
 --- !u!1 &1346318605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1050,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6750783847007654674, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750783847007654674, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750783847007654674, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6790198176570493210, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
       propertyPath: healthBar
       value: 
@@ -1036,7 +1069,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5004252576667811770, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1120644126}
   m_SourcePrefab: {fileID: 100100000, guid: 4feae0204c5c1dd4189645d31424dc7e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
