@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth instance;
     public int maxHealth = 100; // Maximum HP of the player
     public Image healthBar; // Reference to the UI Image representing the health bar
+    public AudioSource audioSource;
+    public AudioClip[] metallicSounds;
 
     public int currentHealth;
 
@@ -32,6 +34,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+         if(metallicSounds != null && audioSource != null)
+        {
+            int randomSoundPicker = Random.Range(0, metallicSounds.Length - 1);
+            audioSource.PlayOneShot(metallicSounds[randomSoundPicker]);
+        }
 
         UpdateHealthBar();
 
