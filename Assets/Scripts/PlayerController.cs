@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource endGameAudioSource;
     public AudioClip victory;
     public AudioClip defeat;
-    public bool canPlayEndGameSound = true;
+    private bool canPlayEndGameSound = true;
 
     private void Start()
     {
