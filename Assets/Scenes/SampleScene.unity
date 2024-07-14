@@ -745,7 +745,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ec3738ad1ecbc674fb19b51ea243e79f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1121,9 +1121,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986032801204750083, guid: 200a392e76bbd0e45a778619d300cd95, type: 3}
+      propertyPath: m_Size.x
+      value: 4.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986032801204750083, guid: 200a392e76bbd0e45a778619d300cd95, type: 3}
+      propertyPath: m_Size.y
+      value: 3.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986032801204750083, guid: 200a392e76bbd0e45a778619d300cd95, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b96b71cad50eafe4a80e0fc1ff1b599d, type: 3}
+    - target: {fileID: 8986032801204750083, guid: 200a392e76bbd0e45a778619d300cd95, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
