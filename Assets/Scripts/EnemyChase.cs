@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     public float moveSpeed = 3f; // Enemy movement speed
-    public int damage = 10; // Damage dealt to the player
+    public int damage = 5; // Damage dealt to the player
     public float damageInterval = 1f; // Time in seconds between each damage application
 
     private Transform player; // Reference to the player's position

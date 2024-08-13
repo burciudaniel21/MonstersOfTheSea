@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Character movement speed
+    public float moveSpeed = 6f; // Character movement speed
     public Transform firePoint; // Reference to the fire point
     public Transform bubbleSpawnPosition; // Reference to the fire point
 
     private Rigidbody2D rb;
     private Vector2 movement;
-    protected float maxSpeed = 5f;
+    protected float maxSpeed = 6f;
     public Vector2 velocity;
     protected float decelerateSpeed = 0.005f;
     private bool facingRight = true; // Track the current facing direction of the player
